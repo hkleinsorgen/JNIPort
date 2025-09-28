@@ -26,3 +26,4 @@ Apart from the Smalltalk packages, the downloads contain the documentation, Java
 | ⤓ [JNIPort-Dolphin-6.zip](<attachments/Download/JNIPort-Dolphin-6.zip>) | Dolphin |
 | ⤓ [FastCMethodPointers.zip](<attachments/Download/FastCMethodPointers.zip>) | VisualWorks |
 | ⤓ [JNIPort_VW_2.0.zip](<attachments/Download/JNIPort_VW_2.0.zip>) | VisualWorks |
+| ⤓ [JNIPort_VW_3.0a.zip](<attachments/Download/JNIPort_VW_3.0a.zip>) | VisualWorks |
