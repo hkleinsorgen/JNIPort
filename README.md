@@ -8,6 +8,14 @@ JNIPort is a Smalltalk library which allows Java code to be invoked from Smallta
 - Use the normal (to a Smalltalker) interactive way of playing with objects and code in workspaces to learn about and prototype Java operations.
 - Continue to use your legacy Java code as you migrate to a more grown-up language…;-)
 
+## Documentation
+
+See [Documentation](site/index.md) for detailed documentation
+
+## Get JNIPort
+
+See [Downoads](site/file-cabinet.md)
+
 ## How it works
 
 You talk to a Java object via a Smalltalk object that acts as a proxy for it. You can call Java methods via the proxy using a lowish-level API where you have to tell the proxy what the method name is, what the argument types are, and so on. Alternatively you can use a higher level of wrapper methods that are either statically generated, or created dynamically.
@@ -30,11 +38,3 @@ JNIPort was originally written by Chris Uppal for [Dolphin Smalltalk](http://www
 Joachim Geidel has ported JNIPort to [VisualWorks](http://www.cincomsmalltalk.com/) and [Pharo](http://www.pharo-project.org/).
 
 JNIPort has been ported to VA Smalltalk by Ben van Dijk, Adriaan van Os and Rolf van der Vleuten. The VASt version is available from [VAStGoodies.com](https://vastgoodies.com/projects/JNIPort).
-
-## Contributing
-
-If you would like to contribute to the documentation, including experience reports or tips and tricks, or if you would like to contribute to JNIPort itself or port it to other Smalltalk dialects, please send a note to Joachim Geidel.
-
-## Documentation
-
-See [Documentation](site/index.md)

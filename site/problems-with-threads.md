@@ -20,9 +20,11 @@ Almost all of the problems revolve around callbacks from the Java runtime into S
 
 ## The General Problem
 
-_The following discussion currently applies only to Dolphin and VisualWorks. Pharo currently (as of fall 2014) does not support callbacks into Smalltalk from foreign threads._
+_The following discussion currently applies only to Dolphin and VisualWorks. Pharo (as of fall 2014) does not support callbacks into Smalltalk from foreign threads._
 
-The problem is that the callback into Smalltalk can be made from an OS thread that is not the one that Smalltalk uses for running Smalltalk code (call it the Smalltalk thread). In an ideal world Smalltalk would be able to execute Smalltalk code on any OS thread, in which case these issues would vanish, but this is not an ideal world. Fortunately, Dolphin and VisualWorks have a basic ability to handle such calls. When Dolphin or VisualWorks find that one of their ExternalCallbacks is being invoked from a thread that is not the Smalltalk thread, it blocks the caller, and passes the call to the Smalltalk thread for execution, then passes back the answer (if any) back to the blocked thread, which is then allowed to proceed. The details of how it does that are not important (at least, I hope they aren't, because I don't know them). One detail is worth noting for Dolphin, though: the external callback will be executed by the Dolphin “main” Process (the one that runs the Windows event dispatch loop).
+The problem is that the callback into Smalltalk can be made from an OS thread that is not the one that Smalltalk uses for running Smalltalk code (call it the Smalltalk thread). In an ideal world Smalltalk would be able to execute Smalltalk code on any OS thread, in which case these issues would vanish, but this is not an ideal world. Fortunately, Dolphin and VisualWorks have a basic ability to handle such calls. When Dolphin or VisualWorks find that one of their ExternalCallbacks is being invoked from a thread that is not the Smalltalk thread, it blocks the caller, and passes the call to the Smalltalk thread for execution, then passes back the answer (if any) back to the blocked thread, which is then allowed to proceed.
+
+One detail is worth noting for Dolphin: the external callback will be executed by the Dolphin “main” Process (the one that runs the Windows event dispatch loop).
 
 Unfortunately that can lead to deadlocks. One way is because Smalltalk cannot service callbacks while the Smalltalk thread is executing Java code:
 

@@ -46,7 +46,7 @@ Given a Java class, each of its methods is fully identified by a combination of 
 
 In practice, the method's return type can be ignored since Java does not allow overloading on return type (although the JVM itself does). So, we can think of a Java method's “full” name as being somehow composed of its normal name and the types of any arguments. The names of generated Smalltalk methods follow this thinking.
 
-(By the way, if you are using a version of Java that supports so-called “generics” then you will need to know that generics are invisble to the Java runtime (they are merely a hack implemented entirely in the Java compiler), and so they are invisible to JNIPort too. The types seen by the Java runtime are what determine the correct names to use, and they are the names of the generic types after “erasure”. If you think that's messy or awkward, then I agree with you, but it's not my fault — Sun have done everyone a disservice by introducing the underpowered, overcomplicated, and largely pointless hack into the language.)
+(By the way, if you are using a version of Java that supports so-called “generics” then you will need to know that generics are invisble to the Java runtime (they are merely a hack implemented entirely in the Java compiler), and so they are invisible to JNIPort too. The types seen by the Java runtime are what determine the correct names to use, and they are the names of the generic types after “erasure”.
 
 The general pattern is that a Java method called, say, “aMethod()”, with arguments of types “Type1”, “Type2”, and “Type3”,
 
@@ -106,7 +106,7 @@ is represented by a method on the String class static called #new_charArray:
 
 It is possible for more than one Java method to map onto the same Smalltalk selector. It is impossible to fix the problem in general (without making the scheme too verbose or complicated to use), but the most common cases can be fixed.
 
-One way ambiguity occurs is when there are two versions of a class or interface with the same name in different packages. If a method is overloaded to handle both of these cases (a not unreasonable situation) then JNIPort will try to generate two corresponding Smalltalk wrapper methods with the same selector. (Since the two argument types have the same short name). Other ways of getting ambiguity can also be invented; I leave it as an exercise for the reader…
+One way ambiguity occurs is when there are two versions of a class or interface with the same name in different packages. If a method is overloaded to handle both of these cases (a not unreasonable situation) then JNIPort will try to generate two corresponding Smalltalk wrapper methods with the same selector. (Since the two argument types have the same short name). 
 
 If JNIPort finds that it is generating two methods with the same selector, then it attempts to get around the problem as follows. Firstly it tries using the long forms of all the type names. So if the Java class had two methods like:
 

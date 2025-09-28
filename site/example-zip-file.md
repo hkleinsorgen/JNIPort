@@ -2,7 +2,7 @@
 
 The example reads a .ZIP file using Java's zip file handling classes.
 
-One general point about this example: we use the generated wrapper methods directly throughout, which is probably not how you would want to use them in practice. The better way is to define wrapper classes and provide convenient Smalltalk-style methods that are built on top of the automatically generated ones. However, I admit that I quite often use the ghost methods “raw”, especially from workspaces.
+One general point about this example: we use the generated wrapper methods directly throughout, which is probably not how you would want to use them in practice. The better way is to define wrapper classes and provide convenient Smalltalk-style methods that are built on top of the automatically generated ones. 
 
 JNIPort does not include wrappers for all the Java classes used in this example so, unless you have generated them yourself, JNIPort should be configured to use ghost classes. You should also have the 'CU Java Additional Wrappers' package installed, since that defines some of the adaptors that we will use.
 
@@ -110,7 +110,7 @@ If you check the class in the Java Classes Browser then you'll see that you can 
 stream := zipfile getInputStream_ZipEntry: entry.
 ```
 
-This answers an object that is of some subclass of java.io.InputStream. Because there is a registered wrapper class for InputStream, actually JavaIoInputStream, the stream object will be an instance of some subclass of that. The mismatch between Java's IO design and Smalltalk's is quite bad, and I haven't been able to create a completely Smalltalk-flavoured interface to Java streams, however you can ask the stream for its #upToEnd (you can't use #contents because that requires a positionable stream and Java's streams aren't arbitrarily seekable). Since the stream in question is binary, the answered collection will be a ByteArray. So we can get the contents of the file by saying:
+This answers an object that is of some subclass of java.io.InputStream. Because there is a registered wrapper class for InputStream, actually JavaIoInputStream, the stream object will be an instance of some subclass of that. The mismatch between Java's IO design and Smalltalk's is quite bad, and thus JNIPort does not provide a completely Smalltalk-flavoured interface to Java streams, however you can ask the stream for its #upToEnd (you can't use #contents because that requires a positionable stream and Java's streams aren't arbitrarily seekable). Since the stream in question is binary, the answered collection will be a ByteArray. So we can get the contents of the file by saying:
 
 ```smalltalk
 bytes := stream upToEnd.

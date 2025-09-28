@@ -10,9 +10,9 @@ However, please do read the section on the [Problems and Limitations](problems-a
 
 JNIPort works by talking to a “real” running JVM, rather than by executing the Java bytecodes in the Smalltalk VM. This approach has both advantages and disadvantages. One of the big advantages is that JNIPort is always complete and up to date with the latest Java version. One downside is that the performance advantages of running Java bytecodes on a high-performance JVM can be lost in the overhead of crossing the “boundary” between the Smalltalk VM and the Java VM. A bigger disadvantage is that JNIPort is very exposed to the the JVM, which is just a DLL sharing the same process space as Smalltalk. Any peculiarities of the way it does things can affect Smalltalk; for instance calling java.lang.System.exit() will duly cause your Smalltalk session to exit! (So don't do that.)
 
-JNIPort comes with a fair amount of documentation. It is not intended to be exhaustive, but is just to help you get oriented with the system. It's less well structured than I would like, but good places to start might be:
+JNIPort comes with a fair amount of documentation. It is not intended to be exhaustive, but is just to help you get oriented with the system. 
 
-- If you like to start with hands-on examples, then try looking at the walkthroughs of installing JNIPort for Dolphin Smalltalk and for VisualWorks, and this example of using it to read a ZIP file.
+- If you like to start with hands-on examples, then try looking at the walkthroughs of installing JNIPort for [VisualWorks](jniport-for-visualworks.md), and [this example](example-zip-file.md) of using it to read a ZIP file.
 
 - If you prefer to start with the concepts, then there are three different views of how the system fits together. A description of the layers of JNIPort; a description of the main players in the community of JNIPort objects and how they interact; and a description of the features of JNIPort and how to use it.
 
@@ -116,4 +116,4 @@ Or a copy of a Smalltalk string:
 class new_String: 'Hello!'. "--> a java.lang.String(Hello!)"
 ```
 
-There's lots more to tell, but I want to keep this example short. See the rest of the JNIPort documentation for details.
+See the rest of the JNIPort documentation for details.

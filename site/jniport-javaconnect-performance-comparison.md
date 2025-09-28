@@ -18,18 +18,18 @@ led to a significant speedup. Together with some other optimizations, the speedu
 
 Before looking at time, please keep in mind that the performance of your application will not be influenced very much by the speed of JNIPort. If it is, then think about the design of your code. Reducing the number of calls from Smalltalk to Java will have a much larger effect than any performance improvements in JNIPort or JavaConnect can have. The people at CodeMesh explain this very nicely.
 
-I have reproduced Johan's tests on a MacBook Pro with a 2.4 GHz Intel Core 2 Duo, 4 GB 667 MHz DDR2 SDRAM, and Mac OS X 10.5.8. The VisualWorks version was 7.7. The Java runtime has the following versions:
+Joachim Geidel has reproduced Johan's tests on a MacBook Pro with a 2.4 GHz Intel Core 2 Duo, 4 GB 667 MHz DDR2 SDRAM, and Mac OS X 10.5.8. The VisualWorks version was 7.7. The Java runtime has the following versions:
 
 > java.vm.version: 1.5.0_20-141\
 java.runtime.version: 1.5.0_20-b02-315
 
-To make sure that garbage collection doesn't interfere too much on the Smalltalk side, I made NewSpace larger by a factor of 10, and also doubled all other space sizes:
+To make sure that garbage collection doesn't interfere too much on the Smalltalk side, he made NewSpace larger by a factor of 10, and also doubled all other space sizes:
 
 ```smalltalk
 ObjectMemory sizesAtStartup: #(10.0 10.0 2.0 2.0 2.0 2.0 2.0)
 ```
 
-I also increased growthRegimeUpperBound to 500 MB such that OldSpace garbage collection is not an issue. For each test, I started the image, started the Java VM, and ran three repetitions of the test code separated by two global garbage collections after each repetition. The absolute times are higher than in Johan's tests, which is probably due to the hardware used.
+Joachim also increased growthRegimeUpperBound to 500 MB such that OldSpace garbage collection is not an issue. For each test, he started the image, started the Java VM, and ran three repetitions of the test code separated by two global garbage collections after each repetition. The absolute times are higher than in Johan's tests, which is probably due to the hardware used.
 
 Here are the results:
 

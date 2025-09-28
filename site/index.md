@@ -1,6 +1,7 @@
 # JNIPort Documentation
 
 - [Introduction to JNIPort](introduction.md)
+- [Downloads](file-cabinet.md)
 - [JNIPort for VisualWorks](jniport-for-visualworks.md)
   - [Quick Start](quick-start.md)
   - [Accessing running JVMs](accessing-running-jvms.md)
@@ -33,4 +34,3 @@
   - [Performance Comparison](jniport-javaconnect-performance-comparison.md)
 - [Problems and Limitations](problems-and-limitations.md)
 - [The Problems with Threads](problems-with-threads.md)
-- [Downloads](file-cabinet.md)

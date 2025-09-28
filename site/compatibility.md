@@ -1,8 +1,6 @@
 # Java implementations and Operating Systems
 
-Theoretically, JNIPort should work on every operating system where both VisualWorks and Java are available. In practice, there are platforms where it is known to work and a few configurations which are known not to work. If you don't see your favorite configuration on the "known to work" list, this doesn't mean that it wouldn't work - I simply can't test all the possible combinations myself. In most cases, JNIPort will work without problems.
-
-If you know of a platform where it works and which isn't on the list, drop me a note and I'll add it here.
+Theoretically, JNIPort should work on every operating system where both VisualWorks and Java are available. In practice, there are platforms where it is known to work and a few configurations which are known not to work. If you don't see your favorite configuration on the "known to work" list, this doesn't mean that it wouldn't work. In most cases, JNIPort will work without problems.
 
 ## Configurations known to work
 
@@ -25,10 +23,3 @@ If you know of a platform where it works and which isn't on the list, drop me a 
 - Mac OS X 10.5 PowerPC, VisualWorks 7.7, Mac OS X JDK 5: For as yet unknown reasons the VM crashes when a mysterious thread attempts a faulty callback into the VisualWorks VM.
 
 - Mac OS X 10.5 Intel, VisualWorks 7.6/7.7, Mac OS X JDK 6: The simple reason for this is that the Java VM on this platform is a 64-bit library, while the VisualWorks virtual machine is a 32-bit application, so they are incompatible.
-
-## What I would like to know:
-
-- Does it work with other Java VM implementations like Apache Harmony, OpenJDK, JamVM, JRockit, Jikes RVM, IcedTea, SoyLatte, Kaffe, or CACAO?
-- On which operating systems does it work with which Java VM implementations?
-- Where does it not work?
-

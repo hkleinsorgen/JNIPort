@@ -23,4 +23,4 @@ Here is an example for accessing an inner class from Apache POI:
 JVM current findClass: #'org.apache.poi.hssf.util.HSSFColor$PALE_BLUE'
 ```
 
-By the way: This is a particularly dreadful example of how to misuse inner classes. I had expected PALE_BLUE to be a static field of `HSSFColor` which holds an instance of this class, and which is initialized when the class is loaded. And I am not alone: I found this example because I was asked why accessing the static field PALE_BLUE does not work. Surprise: `PALE_BLUE` is an inner class which inherits from `HSSFColor`!
+By the way: This is a particularly dreadful example of how to misuse inner classes. PALE_BLUE is not a static field of `HSSFColor` which holds an instance of this class, and which is initialized when the class is loaded. Instead, `PALE_BLUE` is an inner class which inherits from `HSSFColor`.

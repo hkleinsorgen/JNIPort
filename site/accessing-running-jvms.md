@@ -12,7 +12,7 @@ To ask for the number of running JVMs, send instancesStarted to the class:
 numberOfJVMs:= JVM instancesStarted.
 ```
 
-Due to limitations in the Java implementation, you can effectively start only one Java VM per operating system process. Other implementations may not have this limitation, although I don't know if there is any which actually support starting more than one VM per process.
+Due to limitations in the Java implementation, you can effectively start only one Java VM per operating system process. See [the bug report of the OpenJDK project](https://bugs.openjdk.org/browse/JDK-4525299?page=com.atlassian.streams.streams-jira-plugin%3Aactivity-stream-issue-tab)
 
 The consequence is that it is usually sufficient to access the one and only JVM instance by sending current to the class JVM, which will answer the first of the running JVMs:
 
